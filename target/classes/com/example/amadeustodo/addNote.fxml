@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="newBackground" stylesheets="@buttonHover.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.amadeustodo.addNoteController">
+    <top>
+        <Pane prefHeight="32.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="14.0" layoutY="7.0" text="New Note">
+                    <font>
+                        <Font name="Ink Free" size="14.0" />
+                    </font>
+                </Label>
+                <FlowPane hgap="5.0" layoutX="573.0" layoutY="7.0" prefHeight="17.0" prefWidth="17.0">
+               <children>
+                  <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonPressed" prefHeight="25.0" prefWidth="24.0" text="X">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+                </FlowPane>
+            </children>
+        </Pane>
+    </top>
+    <center>
+        <Pane prefHeight="308.0" prefWidth="600.0" style="-fx-background-color: F2F2F2;" styleClass="newBackground" stylesheets="@buttonHover.css" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="31.0" layoutY="38.0" prefHeight="26.0" prefWidth="36.0" text="Title">
+                    <font>
+                        <Font name="Ink Free" size="15.0" />
+                    </font></Label>
+                <TextField fx:id="noteTitle" layoutX="149.0" layoutY="38.0" prefHeight="25.0" prefWidth="419.0" />
+                <Label layoutX="31.0" layoutY="129.0" text="Description">
+                    <font>
+                        <Font name="Ink Free" size="15.0" />
+                    </font></Label>
+                <TextArea fx:id="noteDescription" layoutX="149.0" layoutY="79.0" prefHeight="149.0" prefWidth="421.0" />
+                <Button fx:id="okButton" layoutX="391.0" layoutY="294.0" mnemonicParsing="false" onAction="#okButtonPressed" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: D1E4F9;" text="OK">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+                <Button fx:id="cancelButton" layoutX="490.0" layoutY="294.0" mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: F2C4F6;" text="Cancel">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>

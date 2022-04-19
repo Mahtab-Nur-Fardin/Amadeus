@@ -1,0 +1,47 @@
+.button{
+    transition-duration: 0.4s;
+    -fx-background-color : lightblue;
+    border: azure;
+}
+
+.button:hover {
+    -fx-background-color: aqua;
+}
+
+.button:pressed {
+    -fx-background-color: #1C7877;
+}
+
+.roundButton
+{
+    transition-duration: 0.4s;
+    -fx-background-color: #4CAF50;
+    -fx-background-radius: 50%;
+    -fx-cursor: pointer;
+}
+.roundButton:hover{
+    -fx-background-color: lightgreen;
+}
+.roundButton:pressed {
+    -fx-background-color: #4CAF50;
+}
+
+.notificationsButton{
+    transition-duration: 1s;
+
+    /*-fx-color: white;*/
+    /*-fx-background-color: transparent;*/
+}
+.notificationsButton:hover
+{
+    -fx-background-color: #008CBA;
+}
+.body {
+    -fx-background-image: url('icons/Background.jpg');
+}
+.body2 {
+    -fx-background-image: url('icons/noteJPG.jpg');
+}
+.newBackground {
+    -fx-background-image: url('icons/background2.jpg');
+}

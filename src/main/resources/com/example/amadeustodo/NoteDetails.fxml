@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="441.0" prefWidth="700.0" styleClass="body2" stylesheets="@buttonHover.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.amadeustodo.NoteDetailsController">
+   <children>
+      <Label fx:id="noteTitleLabel" contentDisplay="CENTER" layoutX="292.0" layoutY="81.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="Segoe Print Bold" size="52.0" />
+         </font>
+      </Label>
+      <Label fx:id="noteDescLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="163.0" prefHeight="223.0" prefWidth="476.0" text="Label">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
