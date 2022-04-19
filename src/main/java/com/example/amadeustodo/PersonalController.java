@@ -135,6 +135,7 @@ public class PersonalController implements Initializable {
 
     public void showTasks() throws Exception {
         ObservableList<Tasks> list = jdbcDbObj.showPersonalTaskList();
+
         personalTaskList.setCellFactory(lv -> new ListCell<Tasks>() {
             @Override
             public void updateItem(Tasks item, boolean empty) {

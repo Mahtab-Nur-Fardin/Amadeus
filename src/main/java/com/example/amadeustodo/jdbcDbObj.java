@@ -1,4 +1,5 @@
 
+
 package com.example.amadeustodo;
 
         import javafx.collections.FXCollections;
@@ -19,6 +20,7 @@ package com.example.amadeustodo;
         import java.lang.*;
         import java.time.ZoneId;
         import java.util.ArrayList;
+        import java.util.Comparator;
         import java.util.Date;
 
 
@@ -186,43 +188,50 @@ public class jdbcDbObj {
         ArrayList<Tasks> tasks = new ArrayList<>();
         Tasks f;
         ObservableList<Tasks> tasksList = FXCollections.observableArrayList();
-        try
-        {
+        try {
             Database database = new Database("amadeus", "root", "");
-            String[] columns = {"taskid" ,"title", "description", "deadline", "username", "category"};
+            String[] columns = {"taskid", "title", "description", "deadline", "username", "category"};
             Object[] params = {username};
             ResultSet rs = database.select("task", columns, "username = ? ", params);
 
-            if(!rs.isBeforeFirst()) throw new Exception("User NOT FOUND IN THE DATABASE!");
+            if (!rs.isBeforeFirst()) throw new Exception("User NOT FOUND IN THE DATABASE!");
 
-            while(rs.next())
-            {
+            java.sql.Date deadline = null;
+            while (rs.next()) {
                 int taskid = rs.getInt("taskid");
                 String title = rs.getString("title");
                 String desc = rs.getString("description");
-                java.sql.Date deadline = rs.getDate("deadline");
-                LocalDate localDate =  deadline.toLocalDate();
+                deadline = rs.getDate("deadline");
+                LocalDate localDate = deadline.toLocalDate();
 
 
                 //LocalDate date = LocalDate.ofInstant(deadline.toInstant(), ZoneId.systemDefault());
                 String usname = rs.getString("username");
                 String cat = rs.getString("category");
                 Category category = null;
-                if(cat.equals("Personal") )
+                if (cat.equals("Personal"))
                     category = Category.Personal;
                 else if (cat.equals("Work"))
                     category = Category.Work;
 
 //                Tasks task = new Tasks(category, title, desc, Tasks.dateInput("20/4/2022"));
-                if(category == Category.Personal) {
+                if (category == Category.Personal) {
                     System.out.println("Title = " + title + ", Desc = " + desc + " deadline = " + deadline + "category = " + category);
-                   Tasks task1 = new Tasks(taskid,category, title, desc, localDate);
-                  //  Tasks task1 = new Tasks(taskid,category, title, desc,Tasks.dateInput("20/4/2022") );
+                    Tasks task1 = new Tasks(taskid, category, title, desc, localDate);
+                    //  Tasks task1 = new Tasks(taskid,category, title, desc,Tasks.dateInput("20/4/2022") );
 
                     tasksList.add(task1);
                 }
 
             }
+
+            // assuming there is a instance method Class.getScore that returns int
+            // (other implementations for comparator could be used too, of course)
+//            Comparator<Tasks> comparator = Comparator.comparing(Tasks::getDeadline);
+//
+//            FXCollections.sort(deadline, comparator);
+
+            tasksList.sort(Comparator.comparing(Tasks::getDeadline));
 
             return tasksList;
 
