@@ -200,7 +200,10 @@ public class jdbcDbObj {
                 int taskid = rs.getInt("taskid");
                 String title = rs.getString("title");
                 String desc = rs.getString("description");
-                Date deadline = rs.getDate("deadline");
+                java.sql.Date deadline = rs.getDate("deadline");
+                LocalDate localDate =  deadline.toLocalDate();
+
+
                 //LocalDate date = LocalDate.ofInstant(deadline.toInstant(), ZoneId.systemDefault());
                 String usname = rs.getString("username");
                 String cat = rs.getString("category");
@@ -213,8 +216,8 @@ public class jdbcDbObj {
 //                Tasks task = new Tasks(category, title, desc, Tasks.dateInput("20/4/2022"));
                 if(category == Category.Personal) {
                     System.out.println("Title = " + title + ", Desc = " + desc + " deadline = " + deadline + "category = " + category);
-                  // Tasks task1 = new Tasks(taskid,category, title, desc, Tasks.dateInput("21/4/2022"));
-                    Tasks task1 = new Tasks(taskid,category, title, desc,Tasks.dateInput("20/4/2022") );
+                   Tasks task1 = new Tasks(taskid,category, title, desc, localDate);
+                  //  Tasks task1 = new Tasks(taskid,category, title, desc,Tasks.dateInput("20/4/2022") );
 
                     tasksList.add(task1);
                 }
@@ -255,8 +258,10 @@ public class jdbcDbObj {
                 int taskid = rs.getInt("taskid");
                 String title = rs.getString("title");
                 String desc = rs.getString("description");
-                Date deadline = rs.getDate("deadline");
-                //  LocalDate date = LocalDate.ofInstant(deadline.toInstant(), ZoneId.systemDefault());
+
+                java.sql.Date deadline = rs.getDate("deadline");
+                LocalDate localDate =  deadline.toLocalDate();
+
                 String usname = rs.getString("username");
                 String cat = rs.getString("category");
                 Category category = null;

@@ -46,7 +46,7 @@ public class addTaskController implements Initializable {
     }
 
     @FXML
-    void okButtonPressed(ActionEvent event) {
+    void okButtonPressed(ActionEvent event) throws Exception {
         String title = taskTitle.getText();
         Category category = categoriesChoicebox.getValue();
         taskCategory = category;
@@ -64,6 +64,7 @@ public class addTaskController implements Initializable {
 
         Stage stage = (Stage) okButton.getScene().getWindow();
         stage.close();
+        //jdbcDbObj.showPersonalTaskList();
     }
 
     private Category category = Category.Personal;

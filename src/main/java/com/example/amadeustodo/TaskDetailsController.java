@@ -43,6 +43,9 @@ public class TaskDetailsController {
     void deleteButtonPressed(ActionEvent event) throws Exception {
 
         jdbcDbObj.deletetask(event,Taskid);
+        Stage stage = (Stage) updateBtn.getScene().getWindow();
+        stage.close();
+
     }
 
     @FXML
