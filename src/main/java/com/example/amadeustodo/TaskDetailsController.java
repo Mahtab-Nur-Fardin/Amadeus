@@ -43,13 +43,6 @@ public class TaskDetailsController {
     void deleteButtonPressed(ActionEvent event) throws Exception {
 
         jdbcDbObj.deletetask(event,Taskid);
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
-//        Parent root = fxmlLoader.load();
-//        Stage stage = (Stage)closeButton.getScene().getWindow();
-//        stage.setScene(new Scene(root));
-//        Parent root = FXMLLoader.load(getClass().getResource("Dashboard.fxml"));
-//        Stage stage = (Stage)updateBtn.getScene().getWindow();
-//        stage.setScene(new Scene(root));
     }
 
     @FXML
@@ -58,7 +51,7 @@ public class TaskDetailsController {
         Parent root = FXMLLoader.load(getClass().getResource("updateTask.fxml"));
         Stage stage = (Stage)updateBtn.getScene().getWindow();
         stage.setScene(new Scene(root));
-        jdbcDbObj.deletetask(event,Taskid);
+       // jdbcDbObj.deletetask(event,Taskid);
 
     }
 

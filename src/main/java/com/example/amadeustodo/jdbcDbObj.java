@@ -361,12 +361,17 @@ public class jdbcDbObj {
             cat += "Personal";
 
         else if(stringCategory.equals("Work")) cat += "Work";
-        try {
+
+//        System.out.println("Now in the update task portion");
+//        System.out.println("Task id = " + taskid);
+          try {
             Database database = new Database("amadeus", "root", "");
-            String[] columns = {"title", "description", "deadline","username", "category"};
-            Object[] firstParams = {title,description, deadline,current_user,category.toString()};
-            int success1 = database.update("task", columns,"username = ?" ,firstParams);
+            String[] columns = {"title", "description", "deadline","category"};
+            Object[] firstParams = {title,description, deadline,category.toString(),taskid};
+            int success1 = database.update("task", columns,"taskid = ?" ,firstParams);
             System.out.println("Update a task = " + success1);
+
+        //    System.out.println("Task id = " + taskid);
 
             //changeScene(event, "Login.fxml", username);
 
